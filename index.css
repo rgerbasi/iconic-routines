@@ -1,0 +1,17 @@
+
+main{
+    width: 80%;
+    background-color: whitesmoke;
+    margin: 1rem auto;
+}
+
+.name{
+    margin: 0 0.75rem;
+}
+
+.template {
+    display:none;
+}
+.actions .button{
+    margin-bottom:0;
+}
