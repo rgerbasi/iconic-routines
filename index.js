@@ -1,7 +1,7 @@
 
 
-const app = {
-    init: function(selectors){
+class App {
+    constructor(selectors){
         this.max = 0;
         this.routines = [];
         this.list = document.querySelector(selectors.listSelector);
@@ -13,11 +13,18 @@ const app = {
                 ev.preventDefault();
                 this.handleSubmit(ev);
             });
-    },
+    }
 
-    removeFlick(ev){
+    removeFlick(routine, ev){
+        //remove fromt eh dom
+        const item = ev.target.closest('.routine')
+        item.remove();
 
-    },
+        //remove from teh array
+        const i = this.routines.indexOf(routine)
+        this.routines.splice(i,1)
+
+    }
 
     renderListItem(routine){
         const listItem = this.template.cloneNode(true)
@@ -30,12 +37,13 @@ const app = {
             
         listItem
             .querySelector('.remove.button')
-            .addEventListener('click', this.removeFlick)
+            .addEventListener('click', this.removeFlick.bind(this, routine))
+            //bind this object being the app and passes in the flick
 
         return listItem;
-    },
+    }
 
-    handleSubmit: function(ev){
+    handleSubmit(ev){
         ev.preventDefault();
         const f = ev.target;
         const routine = {
@@ -52,11 +60,13 @@ const app = {
         console.log(routine)
         
         f.reset();
-    },
+    }
 }
 
-app.init({
-    formSelector: '#teamForm',
-    listSelector: '#routineList',
-    templateSelector: '.routine.template',
-});
+const app = new App(
+    {
+        formSelector: '#teamForm',
+        listSelector: '#routineList',
+        templateSelector: '.routine.template',
+    }
+)
