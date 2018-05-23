@@ -15,3 +15,7 @@ main{
 .actions .button{
     margin-bottom:0;
 }
+
+.routine.fav{
+    background-color: gold;
+}

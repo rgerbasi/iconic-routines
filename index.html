@@ -18,15 +18,9 @@
     <main>
         <form id="teamForm">
 
-
-
             <div class="input-group">
 
-
-
                 <input type="text" name="team" placeholder="Team Name..." autofocus required>
-
-
 
                 <select name="year">
                     <option value="2004">2004</option>
@@ -46,17 +40,11 @@
                     <option value="2018" selected="selected">2018</option>
                 </select>
 
-
-
-
                 <div class="input-group-button">
                     <button class="success button" type="submit">
                         Add team
                     </button>
                 </div>
-
-
-
 
             </div>
 
@@ -64,13 +52,20 @@
 
         <ul id="routineList">
             <li class="template routine grid-x align-middle">
+                <a class="auto cell" href="" target="popup" onclick="">
                 <span class="team auto cell">Template</span>
+                </a>
                 <span class="actions shrink cell">
+                    <button class="success edit button">edit</button>
                     <button class="warning fav button">f</button>
                     <button class="alert remove button">del</button>
                 </span>
             </li>
         </ul>
+
+        <div id="window" class="template">
+            <iframe src="" frameborder="0" width="0" height="0" key=''></iframe>
+        </div>
 
     </main>
 
